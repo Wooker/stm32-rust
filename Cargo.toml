@@ -2,7 +2,7 @@
 authors = ["Zakhar Semenov <deadlion24@gmail.com>"]
 edition = "2018"
 readme = "README.md"
-name = "cortex-m-test"
+name = "stm32-rust"
 version = "0.1.0"
 
 [profile.release]
@@ -13,6 +13,7 @@ lto = true # better optimizations
 
 [dependencies]
 cortex-m = "0.6.0"
+cortex-m-semihosting = "0.3.7"
 cortex-m-rtic = "0.5.3"
 panic-halt = "0.2.0"
 embedded-hal = "0.2.3"
@@ -40,6 +41,6 @@ features = ["stm32f103", "rt", "medium"]
 
 # this lets you use `cargo fix`!
 [[bin]]
-name = "cortex-m-test"
+name = "stm32-rust"
 test = false
 bench = false

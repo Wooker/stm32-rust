@@ -3,18 +3,8 @@
 > Used a [template][https://github.com/rust-embedded/cortex-m-quickstart] for building applications for ARM Cortex-M microcontrollers
 developed and maintained by the [Cortex-M team][team].
 
-For the STM32F303VCT6, which has a Cortex-M3 core, I picked the `thumbv7m-none-eabi`
+For the STM32F103C8T6 which has a Cortex-M3 core, I picked the `thumbv7m-none-eabi`
 .target
-
-The next paragraphs are copied from the template:
-
-## Using this template
-
-**NOTE**: This is the very short version that only covers building programs. For
-the long version, which additionally covers flashing, running and debugging
-programs, check [the embedded Rust book][book].
-
-[book]: https://rust-embedded.github.io/book
 
 0. Before we begin you need to identify some characteristics of the target
   device as these will be used to configure the project:
@@ -32,27 +22,17 @@ programs, check [the embedded Rust book][book].
 You can find this information in the data sheet or the reference manual of your
 device.
 
-In this example we'll be using the STM32F3DISCOVERY. This board contains an
-STM32F303VCT6 microcontroller. This microcontroller has:
-
-- A Cortex-M4F core that includes a single precision FPU
-
-- 256 KiB of Flash located at address 0x0800_0000.
-
-- 40 KiB of RAM located at address 0x2000_0000. (There's another RAM region but
-  for simplicity we'll ignore it).
-
 1. Set a default compilation target. There are four options as mentioned at the
    bottom of `.cargo/config`. For the STM32F303VCT6, which has a Cortex-M4F
-   core, we'll pick the `thumbv7em-none-eabihf` target.
+   core, we'll pick the `thumbv7m-none-eabihf` target.
 
 ``` toml
 [build]
 # Pick ONE of these compilation targets
 # target = "thumbv6m-none-eabi"    # Cortex-M0 and Cortex-M0+
-# target = "thumbv7m-none-eabi"    # Cortex-M3
+target = "thumbv7m-none-eabi"    # Cortex-M3
 # target = "thumbv7em-none-eabi"   # Cortex-M4 and Cortex-M7 (no FPU)
-target = "thumbv7em-none-eabihf" # Cortex-M4F and Cortex-M7F (with FPU)
+#target = "thumbv7em-none-eabihf" # Cortex-M4F and Cortex-M7F (with FPU)
 ```
 
 2. Enter the memory region information into the `memory.x` file.
